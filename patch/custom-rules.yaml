@@ -1,23 +1,50 @@
+# ============================================================
 # Custom patch for ACL4SSR_Online_Full_WithIcon.yaml
 #
-# This file is merged into the upstream ACL4SSR override automatically.
+# This file is merged into the upstream ACL4SSR override by
+# scripts/merge.py.
 #
-# proxy-groups:
-#   Additional proxy groups to append.
+# Custom additions:
+#   1. ClaudeCore rule provider
+#   2. ClaudeCore rule is inserted before upstream ACL4SSR rules
 #
-# rule-providers:
-#   Additional Mihomo rule providers to merge.
-#
-# prepend-rules:
-#   Rules inserted BEFORE the upstream ACL4SSR rules.
-#
-# append-rules:
-#   Rules inserted AFTER the upstream ACL4SSR rules.
+# Do NOT edit the generated file under dist/ directly.
+# ============================================================
 
+# ------------------------------------------------------------
+# Additional proxy groups
+# ------------------------------------------------------------
+# No custom proxy group is required at this stage.
+# Claude traffic will temporarily use the existing AI-UNHK
+# proxy group from ACL4SSR.
 proxy-groups: []
 
-rule-providers: {}
+# ------------------------------------------------------------
+# Additional rule providers
+# ------------------------------------------------------------
+rule-providers:
+  ClaudeCore:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/songjialin/vpsrules/main/rules/claude-core-classical.yaml
+    path: ./ruleset/ClaudeCore.yaml
+    interval: 86400
 
-prepend-rules: []
+# ------------------------------------------------------------
+# High-priority rules
+# ------------------------------------------------------------
+# These rules will be inserted BEFORE the original ACL4SSR rules.
+#
+# ClaudeCore therefore matches before the existing:
+#   RULE-SET,AI-MIX,AI-UNHK
+#
+# For now ClaudeCore still uses AI-UNHK, so this step separates
+# Claude matching without changing the current AI egress policy.
+prepend-rules:
+  - RULE-SET,ClaudeCore,AI-UNHK
 
+# ------------------------------------------------------------
+# Rules appended after the original ACL4SSR rules
+# ------------------------------------------------------------
 append-rules: []
