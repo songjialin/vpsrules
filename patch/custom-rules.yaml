@@ -14,6 +14,7 @@
 # ------------------------------------------------------------
 proxy-groups:
   - name: Claude
+    icon: https://raw.githubusercontent.com/songjialin/vpsrules/main/assets/claude.png
     type: select
     proxies:
       - AI-UNHK
@@ -21,6 +22,8 @@ proxy-groups:
       - 自动选择
       - 手动切换
       - DIRECT
+      - 台湾节点
+      - 日本节点
 
 # ------------------------------------------------------------
 # Claude rule provider
