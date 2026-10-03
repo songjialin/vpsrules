@@ -349,6 +349,14 @@ proxy-groups:
   - 狮城节点
   - 韩国节点
   - 奈飞节点
+- name: Claude
+  type: select
+  proxies:
+  - AI-UNHK
+  - 节点选择
+  - 自动选择
+  - 手动切换
+  - DIRECT
 rule-providers:
   LocalAreaNetwork:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
@@ -575,7 +583,7 @@ rule-providers:
     path: ./ruleset/ClaudeCore.yaml
     interval: 86400
 rules:
-- RULE-SET,ClaudeCore,AI-UNHK
+- RULE-SET,ClaudeCore,Claude
 - RULE-SET,LocalAreaNetwork,全球直连
 - RULE-SET,UnBan,全球直连
 - RULE-SET,BanAD,广告拦截
