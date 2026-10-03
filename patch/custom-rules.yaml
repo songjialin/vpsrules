@@ -1,0 +1,23 @@
+# Custom patch for ACL4SSR_Online_Full_WithIcon.yaml
+#
+# This file is merged into the upstream ACL4SSR override automatically.
+#
+# proxy-groups:
+#   Additional proxy groups to append.
+#
+# rule-providers:
+#   Additional Mihomo rule providers to merge.
+#
+# prepend-rules:
+#   Rules inserted BEFORE the upstream ACL4SSR rules.
+#
+# append-rules:
+#   Rules inserted AFTER the upstream ACL4SSR rules.
+
+proxy-groups: []
+
+rule-providers: {}
+
+prepend-rules: []
+
+append-rules: []
