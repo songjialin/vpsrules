@@ -350,6 +350,7 @@ proxy-groups:
   - 韩国节点
   - 奈飞节点
 - name: Claude
+  icon: https://raw.githubusercontent.com/songjialin/vpsrules/main/assets/claude.png
   type: select
   proxies:
   - AI-UNHK
@@ -357,6 +358,8 @@ proxy-groups:
   - 自动选择
   - 手动切换
   - DIRECT
+  - 台湾节点
+  - 日本节点
 rule-providers:
   LocalAreaNetwork:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
