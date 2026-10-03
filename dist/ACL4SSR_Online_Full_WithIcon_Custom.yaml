@@ -567,7 +567,15 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  ClaudeCore:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/songjialin/vpsrules/main/rules/claude-core-classical.yaml
+    path: ./ruleset/ClaudeCore.yaml
+    interval: 86400
 rules:
+- RULE-SET,ClaudeCore,AI-UNHK
 - RULE-SET,LocalAreaNetwork,全球直连
 - RULE-SET,UnBan,全球直连
 - RULE-SET,BanAD,广告拦截
